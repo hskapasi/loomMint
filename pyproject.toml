@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "loommint"
+version = "0.1.0"
+description = "Local-first, auditable data preparation and fine-tuning workflows for open language models"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.11,<3.14"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[project.optional-dependencies]
+trl = ["trl[peft]==1.16.0"]
+unsloth = ["trl[peft]==1.16.0", "unsloth==2026.10.6"]
+
+[project.scripts]
+loommint = "loommint.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["loommint*"]
